@@ -32,6 +32,11 @@ RUN tar -zxf /tmp/hyperic-sigar-1.6.4.tar.gz --wildcards --strip-components=2 -C
 # Add myopenhab 1.4.0 which works fine for openhab 1.6.1 (?)
 ADD https://my.openhab.org/downloads/org.openhab.io.myopenhab-1.4.0-SNAPSHOT.jar /opt/openhab/addons-avail/org.openhab.io.myopenhab-1.4.0-SNAPSHOT.jar
 
+ADD https://github.com/cdjackson/HABmin/releases/download/0.1.3-snapshot/habmin.zip /opt/habmin/habmin-0.1.3.zip
+RUN cd /opt/habmin && unzip /opt/habmin/habmin-0.1.3.zip
+RUN cp /opt/habmin/addons/org.openhab.io.habmin-1.5.0-SNAPSHOT.jar /opt/openhab/addons-avail/
+RUN cp -r /opt/habmin/webapps/habmin /opt/openhab/webapps
+
 # Add pipework to wait for network if needed
 ADD files/pipework /usr/local/bin/pipework
 RUN chmod +x /usr/local/bin/pipework
