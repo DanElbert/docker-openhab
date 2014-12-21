@@ -1,0 +1,2 @@
+
+SUBSYSTEM=="tty", ATTRS{interface}=="CP2102 USB to UART Bridge Controller", SYMLINK+="ttyZwave"

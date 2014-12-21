@@ -36,6 +36,7 @@ ADD https://github.com/cdjackson/HABmin/releases/download/0.1.3-snapshot/habmin.
 RUN cd /opt/habmin && unzip /opt/habmin/habmin-0.1.3.zip
 RUN cp /opt/habmin/addons/org.openhab.io.habmin-1.5.0-SNAPSHOT.jar /opt/openhab/addons-avail/
 RUN cp -r /opt/habmin/webapps/habmin /opt/openhab/webapps
+RUN mkdir -p /opt/openhab/external_configurations
 
 # Add pipework to wait for network if needed
 ADD files/pipework /usr/local/bin/pipework

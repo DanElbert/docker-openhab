@@ -12,6 +12,17 @@ then
 fi
 
 ###########################
+# Configure openhab.cfg
+
+EXTERNAL_CONFIGS=/opt/openhab/external_configurations
+BASE_CONFIG=/opt/openhab/configurations/openhab_base.cfg
+FINAL_CONFIG=/opt/openhab/configurations/openhab.cfg
+
+cp -f $BASE_CONFIG $FINAL_CONFIG
+
+find $EXTERNAL_CONFIGS -iname '*.cfg' -exec cat {} >> $FINAL_CONFIG  \;
+
+###########################
 # Configure Addon libraries
 
 SOURCE=/opt/openhab/addons-avail
