@@ -43,8 +43,12 @@ RUN mkdir -p /opt/openhab/external_configurations
 
 # Add greent
 ADD https://github.com/openhab/openhab/releases/download/v1.6.1/distribution-1.6.1-greent.zip /opt/greent/greent-1.6.1.zip
-RUN cd /opt/greent && unzip /opt/habmin/greent-1.6.1.zip
+RUN cd /opt/greent && unzip /opt/greent/greent-1.6.1.zip
 RUN cp -r /opt/greent/greent /opt/openhab/webapps
+
+# Add startcom ca
+ADD files/ca.pem /opt/ca.pem
+RUN /opt/jdk7/bin/keytool -import -file /opt/ca.pem -alias startcom -keystore /opt/jdk7/jre/lib/security/cacerts -storepass changeit -noprompt
 
 # Add pipework to wait for network if needed
 ADD files/pipework /usr/local/bin/pipework
