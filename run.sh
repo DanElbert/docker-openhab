@@ -1,1 +1,1 @@
-docker run -d -p 8080:8080 --device=/dev/ttyZwave:/dev/ttyZwave0 -v /home/dan/Development/openhab-config:/opt/openhab/configurations danelbert/docker-openhab
+docker run -d -p 6300:8080 --device=/dev/ttyUSB0:/dev/ttyZwave0 -v /etc/openhab/configurations:/opt/openhab/configurations danelbert/docker-openhab
