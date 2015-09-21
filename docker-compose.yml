@@ -1,0 +1,6 @@
+automation:
+  image: 'danelbert/docker-openhab:latest'
+  ports:
+    - '6300:8080'
+  volumes:
+    - /Users/delbert/Development/openhab-config:/opt/openhab/configurations
