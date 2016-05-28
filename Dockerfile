@@ -6,7 +6,7 @@ MAINTAINER Dan Elbert
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN apt-get -y install unzip supervisor wget less
+RUN apt-get -y install unzip supervisor wget less vim
 
 # Download and install Oracle JDK
 # For direct download see: http://stackoverflow.com/questions/10268583/how-to-automate-download-and-installation-of-java-jdk-on-linux
@@ -27,6 +27,9 @@ RUN \
   mkdir -p /opt/openhab/logs && \
   chmod +x /usr/local/bin/boot.sh && \
   rm -rf /tmp/*
+
+# Install X3 root cert
+RUN /opt/jdk8/bin/keytool -import -file /etc/ssl/certs/DST_Root_CA_X3.pem -alias os -keystore /opt/jdk8/jre/lib/security/cacerts -storepass changeit -noprompt
 
 #
 # Download openHAB based on Environment OPENHAB_VERSION
