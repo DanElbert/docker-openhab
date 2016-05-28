@@ -5,13 +5,14 @@ CONFIG_DIR=/etc/openhab/
 ####################
 # Configure timezone
 
-TIMEZONEFILE=$CONFIG_DIR/timezone
+#TIMEZONEFILE=$CONFIG_DIR/timezone
 
-if [ -f "$TIMEZONEFILE" ]
-then
-  cp $TIMEZONEFILE /etc/timezone
-  dpkg-reconfigure -f noninteractive tzdata
-fi
+#if [ -f "$TIMEZONEFILE" ]
+#then
+#  cp $TIMEZONEFILE /etc/timezone
+#  dpkg-reconfigure -f noninteractive tzdata
+#fi
+ln -sf /usr/share/zoneinfo/America/Chicago etc/localtime
 
 ###########################
 # Configure Addon libraries
