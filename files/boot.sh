@@ -13,6 +13,7 @@ CONFIG_DIR=/etc/openhab/
 #  dpkg-reconfigure -f noninteractive tzdata
 #fi
 ln -sf /usr/share/zoneinfo/America/Chicago etc/localtime
+dpkg-reconfigure -f noninteractive tzdata
 
 ###########################
 # Configure Addon libraries
